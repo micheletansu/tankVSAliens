@@ -2,20 +2,20 @@
 
 "alien.png":
 {
-	"frame": {"x":0,"y":0,"w":100,"h":100},
+	"frame": {"x":0,"y":0,"w":100,"h":80},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":100},
-	"sourceSize": {"w":100,"h":100},
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":80},
+	"sourceSize": {"w":100,"h":80},
 	"pivot": {"x":0.5,"y":0.5}
 },
 "face.png":
 {
-	"frame": {"x":100,"y":0,"w":100,"h":100},
+	"frame": {"x":110,"y":0,"w":70,"h":100},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":100},
-	"sourceSize": {"w":100,"h":100},
+	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":100},
+	"sourceSize": {"w":70,"h":100},
 	"pivot": {"x":0.5,"y":0.5}
 }},
 "meta": {
@@ -25,6 +25,6 @@
 	"format": "RGBA8888",
 	"size": {"w":200,"h":100},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:3d1c173404d25b47c82acbd6dfb061b3:4b74002f81ef8326451049e61bdd448e:ace0e5e82375743ccde85e973fd84fb5$"
+	"smartupdate": "$TexturePacker:SmartUpdate:78d051d5cf81220fb8765d5fc9c92c9b:4b74002f81ef8326451049e61bdd448e:ace0e5e82375743ccde85e973fd84fb5$"
 }
 }
