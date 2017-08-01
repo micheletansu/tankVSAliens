@@ -12,8 +12,8 @@
   renderer.backgroundColor = 0x897A20;
   document.body.appendChild(renderer.view);
 
-  var aFace, aliens = [];
-  var message, state;
+  let aFace, aliens = [];
+  let message, state;
 
   loader.add("images/tileset.json")
     .load(setup);
@@ -93,7 +93,7 @@
   }
 
   function keyboard(keyCode) {
-    var key = {};
+    let key = {};
     key.code = keyCode;
     key.isDown = false;
     key.isUp = true;
@@ -130,7 +130,7 @@
   }
 
   function keyboardSetup(aFace) {
-    var left = keyboard(65),
+    let left = keyboard(65),
       up = keyboard(87),
       right = keyboard(68),
       down = keyboard(83);
