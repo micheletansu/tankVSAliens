@@ -3,7 +3,7 @@
   const Sprite = PIXI.Sprite;
   const loader = PIXI.loader;
   const Texture = PIXI.Texture;
-  const velocity = 2,
+  const playerSpeed = 2,
     bulletSpeed = 5,
     numberOfAliens = 6,
     spacing = 100,
@@ -17,20 +17,31 @@
   renderer.backgroundColor = 0x897A20;
   document.body.appendChild(renderer.view);
 
-  let aFace, aliens = [], bullets = [];
+  let player, aliens = [], bullets = [];
   let message, state;
 
   let bulletTex = Texture.fromImage('images/bullet.png');
+  let tankTex = Texture.fromImage('images/tank.png');
 
   loader.add("images/tileset.json")
     .load(setup);
 
-  function setupMessage() {
-    message = new PIXI.Text(
-      "Hello Pixi!",
-      {fontFamily: "Arial", fontSize: 32, fill: "white"}
-    );
+  function setup() {
+    const id = loader.resources["images/tileset.json"].textures;
+    setupMessage();
+    setupAliens(id);
+    setupPlayer(id);
 
+    animate();
+
+    setupActions(player); //Capture the keyboard arrow keys
+    state = play;
+    gameLoop();
+  }
+
+  function setupMessage() {
+    let opt = { fontFamily: "Arial", fontSize: 32, fill: "white" };
+    message = new PIXI.Text("Hello Pixi!", opt);
     message.position.set(54, 96);
     stage.addChild(message);
   }
@@ -46,48 +57,22 @@
     }
   }
 
-  function setupFace(id) {
-    aFace = new Sprite(id["face.png"]);
-    aFace.circular = true;
-    // center the sprite's anchor point
-    aFace.anchor.x = 0.5;
-    aFace.anchor.y = 0.5;
+  function setupPlayer(id) {
+    //player = new Sprite(id["face.png"]);
+    player = new Sprite(tankTex);
+    player.width = 80;
+    player.height = 50;
 
-    aFace.x = 1000 - 100;
-    aFace.y = 500 / 2 - aFace.height / 2;
-    aFace.vx = 0;
-    aFace.vy = 0;
+    player.circular = true;
+    player.anchor.x = 0.5;
+    player.anchor.y = 0.5;
 
-    stage.addChild(aFace);
-  }
+    player.x = 100;
+    player.y = 500 / 2;
+    player.vx = 0;
+    player.vy = 0;
 
-  function setup() {
-
-    const id = loader.resources["images/tileset.json"].textures;
-
-    setupMessage();
-
-    setupAliens(id);
-
-    setupFace(id);
-
-    stage.interactive = true;
-
-    stage.on("mousedown", function(e){
-      shoot(aFace.rotation, {
-        x: aFace.position.x+Math.cos(aFace.rotation)*20,
-        y: aFace.position.y+Math.sin(aFace.rotation)*20
-      });
-    });
-
-    animate();
-
-    //Capture the keyboard arrow keys
-    setupKeyboard(aFace);
-
-    state = play;
-
-    gameLoop();
+    stage.addChild(player);
   }
 
   function gameLoop() {
@@ -99,12 +84,11 @@
 
   function play() {
     collisionsHandler();
-    aFace.x += aFace.vx;
-    aFace.y += aFace.vy;
+    player.x += player.vx;
+    player.y += player.vy;
   }
 
-  function shoot(rotation, startPosition){
-    let bullet = new Sprite(bulletTex);
+  function shoot(bullet, rotation, startPosition){
     bullet.position.x = startPosition.x;
     bullet.position.y = startPosition.y;
     bullet.rotation = rotation;
@@ -115,7 +99,7 @@
   function rotateToPoint(mx, my, px, py){
     let dist_Y = my - py;
     let dist_X = mx - px;
-    let angle = Math.atan2(dist_Y,dist_X);
+    let angle = Math.atan2(dist_Y,dist_X) + Math.PI;
     //var degrees = angle * 180/ Math.PI;
     return angle;
   }
@@ -123,12 +107,11 @@
   function animate() {
     requestAnimationFrame(animate);
 
-    // just for fun, let's rotate mr rabbit a little
-    aFace.rotation = rotateToPoint(
+    player.rotation = rotateToPoint(
       renderer.plugins.interaction.mouse.global.x,
       renderer.plugins.interaction.mouse.global.y,
-      aFace.position.x,
-      aFace.position.y);
+      player.position.x,
+      player.position.y);
 
     for (let b = bullets.length - 1; b >= 0; b--) {
       bullets[b].position.x += Math.cos(bullets[b].rotation) * bulletSpeed;
@@ -141,7 +124,7 @@
   function collisionsHandler() {
     let collision = false;
     for (let i = 0; i < aliens.length; i++) {
-      if (bump.hit(aFace, aliens[i])) {
+      if (bump.hit(player, aliens[i])) {
         collision = true;
         break;
       }
@@ -198,7 +181,7 @@
     return key;
   }
 
-  function setupKeyboard(aFace) {
+  function setupActions(player) {
     let left = keyboard(65),
       up = keyboard(87),
       right = keyboard(68),
@@ -206,49 +189,60 @@
 
     left.press = function() {
       //Change the alien face velocity when the key is pressed
-      aFace.vx = -velocity;
-      aFace.vy = 0;
+      player.vx = -playerSpeed;
+      player.vy = 0;
     };
-
     left.release = function() {
       //If the left arrow has been released, and the right arrow isn't down,
       //and the cat isn't moving vertically:
       //Stop the cat
-      if (!right.isDown && aFace.vy === 0) {
-        aFace.vx = 0;
+      if (!right.isDown && player.vy === 0) {
+        player.vx = 0;
       }
     };
 
     up.press = function() {
-      aFace.vy = -velocity;
-      aFace.vx = 0;
+      player.vy = -playerSpeed;
+      player.vx = 0;
     };
     up.release = function() {
-      if (!down.isDown && aFace.vx === 0) {
-        aFace.vy = 0;
+      if (!down.isDown && player.vx === 0) {
+        player.vy = 0;
       }
     };
 
-    //Right
     right.press = function() {
-      aFace.vx = velocity;
-      aFace.vy = 0;
+      player.vx = playerSpeed;
+      player.vy = 0;
     };
     right.release = function() {
-      if (!left.isDown && aFace.vy === 0) {
-        aFace.vx = 0;
+      if (!left.isDown && player.vy === 0) {
+        player.vx = 0;
       }
     };
 
-    //Down
     down.press = function() {
-      aFace.vy = velocity;
-      aFace.vx = 0;
+      player.vy = playerSpeed;
+      player.vx = 0;
     };
     down.release = function() {
-      if (!up.isDown && aFace.vx === 0) {
-        aFace.vy = 0;
+      if (!up.isDown && player.vx === 0) {
+        player.vy = 0;
       }
     };
+
+    stage.interactive = true;
+
+    stage.on("mousedown", function(e){
+      let bullet = new Sprite(bulletTex);
+      bullet.anchor.x = 0.5;
+      bullet.anchor.y = 0.5;
+      const cannonLength = player.width / 2;
+      let startPosition = {
+        x: player.position.x - Math.cos(player.rotation) * cannonLength,
+        y: player.position.y - Math.sin(player.rotation) * cannonLength
+      };
+      shoot(bullet, player.rotation + Math.PI, startPosition);
+    });
   }
 })();
