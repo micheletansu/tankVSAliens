@@ -34,7 +34,7 @@
 
     animate();
 
-    setupActions(player); //Capture the keyboard arrow keys
+    inputHandler(player); //Capture the keyboard arrow keys
     state = play;
     gameLoop();
   }
@@ -181,21 +181,17 @@
     return key;
   }
 
-  function setupActions(player) {
+  function keyHandler(player) {
     let left = keyboard(65),
       up = keyboard(87),
       right = keyboard(68),
       down = keyboard(83);
 
     left.press = function() {
-      //Change the alien face velocity when the key is pressed
       player.vx = -playerSpeed;
       player.vy = 0;
     };
     left.release = function() {
-      //If the left arrow has been released, and the right arrow isn't down,
-      //and the cat isn't moving vertically:
-      //Stop the cat
       if (!right.isDown && player.vy === 0) {
         player.vx = 0;
       }
@@ -230,10 +226,11 @@
         player.vy = 0;
       }
     };
+  }
 
+  function mouseHandler(player) {
     stage.interactive = true;
-
-    stage.on("mousedown", function(e){
+    stage.on("mousedown", function(e) {
       let bullet = new Sprite(bulletTex);
       bullet.anchor.x = 0.5;
       bullet.anchor.y = 0.5;
@@ -244,5 +241,10 @@
       };
       shoot(bullet, player.rotation + Math.PI, startPosition);
     });
+  }
+
+  function inputHandler(player) {
+    keyHandler(player);
+    mouseHandler(player);
   }
 })();
