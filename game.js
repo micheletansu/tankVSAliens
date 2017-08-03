@@ -4,6 +4,12 @@
   const loader = PIXI.loader;
   const Texture = PIXI.Texture;
   let loadTeaxture;
+  const IMAGES = {
+    TANK: 'images/tank.png',
+    ALIEN: 'alien.png',
+    BULLET: 'images/bullet.png',
+    TILESET: 'images/tileset.json'
+  };
   const playerSpeed = 2.5,
     bulletSpeed = 5,
     spacing = 100,
@@ -21,14 +27,14 @@
   let player, aliens = [], bullets = [];
   let message, state;
 
-  let bulletTex = Texture.fromImage('images/bullet.png');
-  let tankTex = Texture.fromImage('images/tank.png');
+  let bulletTex = Texture.fromImage(IMAGES.BULLET);
+  let tankTex = Texture.fromImage(IMAGES.TANK);
 
-  loader.add("images/tileset.json")
+  loader.add(IMAGES.TILESET)
     .load(setup);
 
   function setup() {
-    loadTeaxture = loader.resources["images/tileset.json"].textures;
+    loadTeaxture = loader.resources[IMAGES.TILESET].textures;
     setupMessage();
     setupAliens();
     setupPlayer();
@@ -49,13 +55,13 @@
     stage.addChild(message);
   }
 
-  function setupAlien(i) {
-    let alien = new Sprite(loadTeaxture["alien.png"]);
+  function setupAlien(i, isInitialSetup) {
+    let alien = new Sprite(loadTeaxture[IMAGES.ALIEN]);
     alien.circular = true;
     alien.anchor.x = 0.5;
     alien.anchor.y = 0.5;
     alien.scale.x = -1; //Flip x
-    alien.x = spacing * i + xOffset;
+    alien.x = isInitialSetup ? spacing * i + xOffset : renderer.view.width;
     alien.y = randomInt(0, stage._height - alien.height);
     stage.addChild(alien);
     aliens.push(alien);
@@ -64,11 +70,11 @@
 
   function setupAliens() {
     for (let i = 0; i < numberOfAliens; i++) {
-      setupAlien(i);
+      setupAlien(i, true);
     }
   }
 
-  function setupPlayer(id) {
+  function setupPlayer() {
     //player = new Sprite(id["face.png"]);
     player = new Sprite(tankTex);
     player.width = 80;
@@ -86,6 +92,7 @@
     stage.addChild(player);
   }
 
+  let loopNumber = 0;
   function gameLoop() {
     //Loop this function at 60 frames per second
     requestAnimationFrame(gameLoop);
@@ -103,9 +110,20 @@
         return;
       }
       message.visible = false;
+      for (let bullet of bullets) {
+        if (bump.hit(bullet, alien)) {
+          aliens.splice(aliens.indexOf(alien), 1);
+          stage.removeChild(alien);
+        }
+      }
       alien.x -= 2;
     }
-    setTimeout(() => {setupAlien(++numberOfAliens)}, 1000)
+
+    if (loopNumber === 100) {
+      setupAlien(++numberOfAliens, false)
+      loopNumber = 0;
+    }
+    loopNumber++;
   }
 
   function shoot(bullet, rotation, startPosition){
