@@ -3,11 +3,12 @@
   const Sprite = PIXI.Sprite;
   const loader = PIXI.loader;
   const Texture = PIXI.Texture;
-  const playerSpeed = 2,
+  let loadTeaxture;
+  const playerSpeed = 2.5,
     bulletSpeed = 5,
-    numberOfAliens = 6,
     spacing = 100,
     xOffset = 150;
+  let numberOfAliens = 6;
 
   let stage = new PIXI.Container();
   stage.height = 500;
@@ -27,10 +28,10 @@
     .load(setup);
 
   function setup() {
-    const id = loader.resources["images/tileset.json"].textures;
+    loadTeaxture = loader.resources["images/tileset.json"].textures;
     setupMessage();
-    setupAliens(id);
-    setupPlayer(id);
+    setupAliens();
+    setupPlayer();
 
     animate();
 
@@ -42,18 +43,28 @@
   function setupMessage() {
     let opt = { fontFamily: "Arial", fontSize: 32, fill: "white" };
     message = new PIXI.Text("Hello Pixi!", opt);
-    message.position.set(54, 96);
+    message.anchor.x = 0.5;
+    message.position.set(renderer.view.width / 2, 30);
+    message.visible = false;
     stage.addChild(message);
   }
 
-  function setupAliens(id) {
+  function setupAlien(i) {
+    let alien = new Sprite(loadTeaxture["alien.png"]);
+    alien.circular = true;
+    alien.anchor.x = 0.5;
+    alien.anchor.y = 0.5;
+    alien.scale.x = -1; //Flip x
+    alien.x = spacing * i + xOffset;
+    alien.y = randomInt(0, stage._height - alien.height);
+    stage.addChild(alien);
+    aliens.push(alien);
+    return alien;
+  }
+
+  function setupAliens() {
     for (let i = 0; i < numberOfAliens; i++) {
-      let alien = new Sprite(id["alien.png"]);
-      alien.circular = true;
-      alien.x = spacing * i + xOffset;
-      alien.y = randomInt(0, stage._height - alien.height);
-      stage.addChild(alien);
-      aliens.push(alien);
+      setupAlien(i);
     }
   }
 
@@ -83,9 +94,18 @@
   }
 
   function play() {
-    collisionsHandler();
     player.x += player.vx;
     player.y += player.vy;
+    for (let alien of aliens) {
+      if (bump.hit(player, alien)) {
+        message.text = "Game over";
+        message.visible = true;
+        return;
+      }
+      message.visible = false;
+      alien.x -= 2;
+    }
+    setTimeout(() => {setupAlien(++numberOfAliens)}, 1000)
   }
 
   function shoot(bullet, rotation, startPosition){
@@ -119,25 +139,6 @@
     }
     // render the container
     renderer.render(stage);
-  }
-
-  function collisionsHandler() {
-    let collision = false;
-    for (let i = 0; i < aliens.length; i++) {
-      if (bump.hit(player, aliens[i])) {
-        collision = true;
-        break;
-      }
-    }
-    if (collision) {
-      //if there's a collision, change the message text
-      //and tint the box red
-      message.text = "hit!";
-    } else {
-      //if there's no collision, reset the message
-      //text and the box's color
-      message.text = "No collision...";
-    }
   }
 
   function randomInt(min, max) {
