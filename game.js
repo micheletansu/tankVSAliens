@@ -62,6 +62,7 @@
     alien.anchor.y = 0.5;
     alien.scale.x = -1; //Flip x
     alien.x = isInitialSetup ? spacing * i + xOffset : renderer.view.width;
+    alien.vx = 2;
     alien.y = randomInt(0, stage._height - alien.height);
     stage.addChild(alien);
     aliens.push(alien);
@@ -116,11 +117,11 @@
           stage.removeChild(alien);
         }
       }
-      alien.x -= 2;
+      alien.x -= alien.vx;;
     }
 
     if (loopNumber === 100) {
-      setupAlien(++numberOfAliens, false)
+      setupAlien(++numberOfAliens, false);
       loopNumber = 0;
     }
     loopNumber++;
