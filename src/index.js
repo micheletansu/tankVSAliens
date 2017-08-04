@@ -1,23 +1,16 @@
 import * as PIXI from 'pixi.js';
 import Bump from 'bump.js';
 
-const Sprite = PIXI.Sprite;
-const loader = PIXI.loader;
-const Texture = PIXI.Texture;
+import IMAGES from './constants.js';
+import Player from './Player.js';
+import Alien from './Alien.js';
+import Bullet from './Bullet.js';
+
 const bump = new Bump(PIXI);
-let loadTeaxture;
-const IMAGES = {
-  TANK: '../images/tank.png',
-  ALIEN: 'alien.png',
-  BULLET: '../images/bullet.png',
-  TILESET: '../images/tileset.json'
-};
-const playerSpeed = 2.5,
-  bulletSpeed = 5,
-  spacing = 100,
-  xOffset = 150;
+
 let numberOfAliens = 6;
 
+let loadTeaxture;
 let stage = new PIXI.Container();
 stage.height = 500;
 stage.width = 1000;
@@ -29,14 +22,11 @@ document.body.appendChild(renderer.view);
 let player, aliens = [], bullets = [];
 let message, state;
 
-let bulletTex = Texture.fromImage(IMAGES.BULLET);
-let tankTex = Texture.fromImage(IMAGES.TANK);
-
-loader.add(IMAGES.TILESET)
+PIXI.loader.add(IMAGES.TILESET)
   .load(setup);
 
 function setup() {
-  loadTeaxture = loader.resources[IMAGES.TILESET].textures;
+  loadTeaxture = PIXI.loader.resources[IMAGES.TILESET].textures;
   setupMessage();
   setupAliens();
   setupPlayer();
@@ -58,14 +48,8 @@ function setupMessage() {
 }
 
 function setupAlien(i, isInitialSetup) {
-  let alien = new Sprite(loadTeaxture[IMAGES.ALIEN]);
-  alien.circular = true;
-  alien.anchor.x = 0.5;
-  alien.anchor.y = 0.5;
-  alien.scale.x = -1; //Flip x
-  alien.x = isInitialSetup ? spacing * i + xOffset : renderer.view.width;
-  alien.vx = 2;
-  alien.y = randomInt(0, stage._height - alien.height);
+  //let alien = new PIXI.Sprite(loadTeaxture[IMAGES.ALIEN]);
+  let alien = new Alien(i, isInitialSetup, renderer);
   stage.addChild(alien);
   aliens.push(alien);
   return alien;
@@ -78,20 +62,7 @@ function setupAliens() {
 }
 
 function setupPlayer() {
-  //player = new Sprite(id["face.png"]);
-  player = new Sprite(tankTex);
-  player.width = 80;
-  player.height = 50;
-
-  player.circular = true;
-  player.anchor.x = 0.5;
-  player.anchor.y = 0.5;
-
-  player.x = 100;
-  player.y = 500 / 2;
-  player.vx = 0;
-  player.vy = 0;
-
+  player = new Player();
   stage.addChild(player);
 }
 
@@ -155,15 +126,11 @@ function animate() {
     player.position.y);
 
   for (let b = bullets.length - 1; b >= 0; b--) {
-    bullets[b].position.x += Math.cos(bullets[b].rotation) * bulletSpeed;
-    bullets[b].position.y += Math.sin(bullets[b].rotation) * bulletSpeed;
+    bullets[b].position.x += Math.cos(bullets[b].rotation) * Bullet.speed;
+    bullets[b].position.y += Math.sin(bullets[b].rotation) * Bullet.speed;
   }
   // render the container
   renderer.render(stage);
-}
-
-function randomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function keyboard(keyCode) {
@@ -210,7 +177,7 @@ function keyHandler(player) {
     down = keyboard(83);
 
   left.press = function() {
-    player.vx = -playerSpeed;
+    player.vx = - Player.speed;
     player.vy = 0;
   };
   left.release = function() {
@@ -220,7 +187,7 @@ function keyHandler(player) {
   };
 
   up.press = function() {
-    player.vy = -playerSpeed;
+    player.vy = - Player.speed;
     player.vx = 0;
   };
   up.release = function() {
@@ -230,7 +197,7 @@ function keyHandler(player) {
   };
 
   right.press = function() {
-    player.vx = playerSpeed;
+    player.vx = Player.speed;
     player.vy = 0;
   };
   right.release = function() {
@@ -240,7 +207,7 @@ function keyHandler(player) {
   };
 
   down.press = function() {
-    player.vy = playerSpeed;
+    player.vy = Player.speed;
     player.vx = 0;
   };
   down.release = function() {
@@ -253,15 +220,12 @@ function keyHandler(player) {
 function mouseHandler(player) {
   stage.interactive = true;
   stage.on("mousedown", function(e) {
-    let bullet = new Sprite(bulletTex);
-    bullet.anchor.x = 0.5;
-    bullet.anchor.y = 0.5;
     const cannonLength = player.width / 2;
     let startPosition = {
       x: player.position.x - Math.cos(player.rotation) * cannonLength,
       y: player.position.y - Math.sin(player.rotation) * cannonLength
     };
-    shoot(bullet, player.rotation + Math.PI, startPosition);
+    shoot(new Bullet(), player.rotation + Math.PI, startPosition);
   });
 }
 
