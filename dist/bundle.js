@@ -106,7 +106,7 @@ Object.defineProperty(exports, 'glCore', {
   }
 });
 
-var _Bounds = __webpack_require__(27);
+var _Bounds = __webpack_require__(26);
 
 Object.defineProperty(exports, 'Bounds', {
   enumerable: true,
@@ -151,7 +151,7 @@ Object.defineProperty(exports, 'TransformStatic', {
   }
 });
 
-var _TransformBase = __webpack_require__(29);
+var _TransformBase = __webpack_require__(28);
 
 Object.defineProperty(exports, 'TransformBase', {
   enumerable: true,
@@ -160,7 +160,7 @@ Object.defineProperty(exports, 'TransformBase', {
   }
 });
 
-var _Sprite = __webpack_require__(30);
+var _Sprite = __webpack_require__(29);
 
 Object.defineProperty(exports, 'Sprite', {
   enumerable: true,
@@ -178,7 +178,7 @@ Object.defineProperty(exports, 'CanvasSpriteRenderer', {
   }
 });
 
-var _CanvasTinter = __webpack_require__(34);
+var _CanvasTinter = __webpack_require__(33);
 
 Object.defineProperty(exports, 'CanvasTinter', {
   enumerable: true,
@@ -286,7 +286,7 @@ Object.defineProperty(exports, 'BaseTexture', {
   }
 });
 
-var _RenderTexture = __webpack_require__(33);
+var _RenderTexture = __webpack_require__(32);
 
 Object.defineProperty(exports, 'RenderTexture', {
   enumerable: true,
@@ -416,7 +416,7 @@ var _utils = __webpack_require__(2);
 
 var utils = _interopRequireWildcard(_utils);
 
-var _ticker = __webpack_require__(32);
+var _ticker = __webpack_require__(31);
 
 var ticker = _interopRequireWildcard(_ticker);
 
@@ -839,7 +839,7 @@ var _mixin = __webpack_require__(108);
 
 var mixins = _interopRequireWildcard(_mixin);
 
-var _ismobilejs = __webpack_require__(28);
+var _ismobilejs = __webpack_require__(27);
 
 var isMobile = _interopRequireWildcard(_ismobilejs);
 
@@ -1521,7 +1521,7 @@ exports.default = {
 
 exports.__esModule = true;
 
-var _Point = __webpack_require__(23);
+var _Point = __webpack_require__(22);
 
 Object.defineProperty(exports, 'Point', {
   enumerable: true,
@@ -1539,7 +1539,7 @@ Object.defineProperty(exports, 'ObservablePoint', {
   }
 });
 
-var _Matrix = __webpack_require__(24);
+var _Matrix = __webpack_require__(23);
 
 Object.defineProperty(exports, 'Matrix', {
   enumerable: true,
@@ -1584,7 +1584,7 @@ Object.defineProperty(exports, 'Polygon', {
   }
 });
 
-var _Rectangle = __webpack_require__(25);
+var _Rectangle = __webpack_require__(24);
 
 Object.defineProperty(exports, 'Rectangle', {
   enumerable: true,
@@ -2888,7 +2888,7 @@ var _determineCrossOrigin = __webpack_require__(111);
 
 var _determineCrossOrigin2 = _interopRequireDefault(_determineCrossOrigin);
 
-var _bitTwiddle = __webpack_require__(31);
+var _bitTwiddle = __webpack_require__(30);
 
 var _bitTwiddle2 = _interopRequireDefault(_bitTwiddle);
 
@@ -4838,7 +4838,7 @@ exports.default = Shader;
 /* eslint-disable no-undef */
 
 var Loader = __webpack_require__(175).default;
-var Resource = __webpack_require__(37).default;
+var Resource = __webpack_require__(36).default;
 var async = __webpack_require__(83);
 var b64 = __webpack_require__(84);
 
@@ -4867,7 +4867,7 @@ var _core = __webpack_require__(0);
 
 var core = _interopRequireWildcard(_core);
 
-var _TextureTransform = __webpack_require__(36);
+var _TextureTransform = __webpack_require__(35);
 
 var _TextureTransform2 = _interopRequireDefault(_TextureTransform);
 
@@ -5341,7 +5341,7 @@ if (typeof _deprecation2.default === 'function') {
 // Always export PixiJS globally.
 global.PIXI = exports; // eslint-disable-line
 //# sourceMappingURL=index.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
 
 /***/ }),
 /* 17 */
@@ -6840,25 +6840,6 @@ function buildNativeLine(graphicsData, webGLData) {
 
 /***/ }),
 /* 21 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-const IMAGES = {
-  TANK: '../images/tank.png',
-  ALIEN: '../images/alien.png',
-  BULLET: '../images/bullet.png',
-  TILESET: '../images/tileset.json'
-};
-
-/*const playerSpeed = 2.5,
-  bulletSpeed = 5,
-  spacing = 100,
-  xOffset = 150;*/
-
-/* harmony default export */ __webpack_exports__["a"] = (IMAGES);
-
-/***/ }),
-/* 22 */
 /***/ (function(module, exports) {
 
 var g;
@@ -6885,7 +6866,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6981,7 +6962,7 @@ exports.default = Point;
 //# sourceMappingURL=Point.js.map
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6991,7 +6972,7 @@ exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Point = __webpack_require__(23);
+var _Point = __webpack_require__(22);
 
 var _Point2 = _interopRequireDefault(_Point);
 
@@ -7517,7 +7498,7 @@ exports.default = Matrix;
 //# sourceMappingURL=Matrix.js.map
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7785,7 +7766,7 @@ exports.default = Rectangle;
 //# sourceMappingURL=Rectangle.js.map
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports) {
 
 
@@ -7837,7 +7818,7 @@ module.exports = mapSize;
 
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8185,7 +8166,7 @@ exports.default = Bounds;
 //# sourceMappingURL=Bounds.js.map
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -8331,7 +8312,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8423,7 +8404,7 @@ TransformBase.IDENTITY = new TransformBase();
 //# sourceMappingURL=TransformBase.js.map
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9050,7 +9031,7 @@ exports.default = Sprite;
 //# sourceMappingURL=Sprite.js.map
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9261,7 +9242,7 @@ exports.nextCombination = function(v) {
 
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9346,7 +9327,7 @@ exports.Ticker = _Ticker2.default;
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9502,7 +9483,7 @@ exports.default = RenderTexture;
 //# sourceMappingURL=RenderTexture.js.map
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9752,7 +9733,7 @@ exports.default = CanvasTinter;
 //# sourceMappingURL=CanvasTinter.js.map
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9791,7 +9772,7 @@ function createIndicesForQuads(size) {
 //# sourceMappingURL=createIndicesForQuads.js.map
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9801,7 +9782,7 @@ exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Matrix = __webpack_require__(24);
+var _Matrix = __webpack_require__(23);
 
 var _Matrix2 = _interopRequireDefault(_Matrix);
 
@@ -9955,7 +9936,7 @@ exports.default = TextureTransform;
 //# sourceMappingURL=TextureTransform.js.map
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11116,7 +11097,7 @@ function reqType(xhr) {
 //# sourceMappingURL=Resource.js.map
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11609,6 +11590,25 @@ function findTextStyle(item, queue) {
 //# sourceMappingURL=BasePrepare.js.map
 
 /***/ }),
+/* 38 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const IMAGES = {
+  TANK: '../images/tank.png',
+  ALIEN: '../images/alien.png',
+  BULLET: '../images/bullet.png',
+  TILESET: '../images/tileset.json'
+};
+
+/*const playerSpeed = 2.5,
+  bulletSpeed = 5,
+  spacing = 100,
+  xOffset = 150;*/
+
+/* harmony default export */ __webpack_exports__["a"] = (IMAGES);
+
+/***/ }),
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11739,7 +11739,7 @@ exports.default = ObservablePoint;
 
 exports.__esModule = true;
 
-var _Matrix = __webpack_require__(24);
+var _Matrix = __webpack_require__(23);
 
 var _Matrix2 = _interopRequireDefault(_Matrix);
 
@@ -12418,7 +12418,7 @@ module.exports = compileProgram;
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var mapType = __webpack_require__(26);
+var mapType = __webpack_require__(25);
 var mapSize = __webpack_require__(45);
 
 /**
@@ -12506,7 +12506,7 @@ module.exports = mapSize;
 /* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var mapType = __webpack_require__(26);
+var mapType = __webpack_require__(25);
 var defaultValue = __webpack_require__(47);
 
 /**
@@ -12827,7 +12827,7 @@ var _Transform = __webpack_require__(52);
 
 var _Transform2 = _interopRequireDefault(_Transform);
 
-var _Bounds = __webpack_require__(27);
+var _Bounds = __webpack_require__(26);
 
 var _Bounds2 = _interopRequireDefault(_Bounds);
 
@@ -13508,7 +13508,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _math = __webpack_require__(4);
 
-var _TransformBase2 = __webpack_require__(29);
+var _TransformBase2 = __webpack_require__(28);
 
 var _TransformBase3 = _interopRequireDefault(_TransformBase2);
 
@@ -13723,7 +13723,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _math = __webpack_require__(4);
 
-var _TransformBase2 = __webpack_require__(29);
+var _TransformBase2 = __webpack_require__(28);
 
 var _TransformBase3 = _interopRequireDefault(_TransformBase2);
 
@@ -14652,7 +14652,7 @@ var _BaseTexture3 = _interopRequireDefault(_BaseTexture2);
 
 var _utils = __webpack_require__(2);
 
-var _ticker = __webpack_require__(32);
+var _ticker = __webpack_require__(31);
 
 var _const = __webpack_require__(1);
 
@@ -15100,7 +15100,7 @@ var _Container = __webpack_require__(10);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _RenderTexture = __webpack_require__(33);
+var _RenderTexture = __webpack_require__(32);
 
 var _RenderTexture2 = _interopRequireDefault(_RenderTexture);
 
@@ -16090,7 +16090,7 @@ var _pixiGlCore = __webpack_require__(5);
 
 var _pixiGlCore2 = _interopRequireDefault(_pixiGlCore);
 
-var _createIndicesForQuads = __webpack_require__(35);
+var _createIndicesForQuads = __webpack_require__(34);
 
 var _createIndicesForQuads2 = _interopRequireDefault(_createIndicesForQuads);
 
@@ -17904,7 +17904,7 @@ var _Container = __webpack_require__(10);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _ticker = __webpack_require__(32);
+var _ticker = __webpack_require__(31);
 
 var _settings = __webpack_require__(3);
 
@@ -18261,7 +18261,7 @@ Object.defineProperty(exports, 'AnimatedSprite', {
   }
 });
 
-var _TextureTransform = __webpack_require__(36);
+var _TextureTransform = __webpack_require__(35);
 
 Object.defineProperty(exports, 'TextureTransform', {
   enumerable: true,
@@ -20295,11 +20295,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pixi_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_bump_js__ = __webpack_require__(192);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_bump_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_bump_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants_js__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Player_js__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Alien_js__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Bullet_js__ = __webpack_require__(195);
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Player_js__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Alien_js__ = __webpack_require__(196);
 
 
 
@@ -20308,65 +20305,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 const bump = new __WEBPACK_IMPORTED_MODULE_1_bump_js___default.a(__WEBPACK_IMPORTED_MODULE_0_pixi_js__);
 
-let numberOfAliens = 6;
-
-let loadTeaxture;
-let stage = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Container"]();
-stage.height = 500;
-stage.width = 1000;
-
 let renderer = __WEBPACK_IMPORTED_MODULE_0_pixi_js__["autoDetectRenderer"](1000, 500);
 renderer.backgroundColor = 0x897A20;
 document.body.appendChild(renderer.view);
 
-let player, aliens = [], bullets = [];
-let message, state;
+let stage = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Container"]();
+stage.height = renderer.view.height;
+stage.width = renderer.view.width;
 
-__WEBPACK_IMPORTED_MODULE_0_pixi_js__["loader"].add(__WEBPACK_IMPORTED_MODULE_2__constants_js__["a" /* default */].TILESET)
-  .load(setup);
+let player, aliens = [], bullets = [];
+let message, state, loopNumber = 0;
+
+setup();
 
 function setup() {
-  loadTeaxture = __WEBPACK_IMPORTED_MODULE_0_pixi_js__["loader"].resources[__WEBPACK_IMPORTED_MODULE_2__constants_js__["a" /* default */].TILESET].textures;
   setupMessage();
-  setupAliens();
-  setupPlayer();
-
-  animate();
-
-  inputHandler(player); //Capture the keyboard arrow keys
+  player = new __WEBPACK_IMPORTED_MODULE_2__Player_js__["a" /* default */](renderer, stage, bullets);
   state = play;
   gameLoop();
 }
 
-function setupMessage() {
-  let opt = { fontFamily: "Arial", fontSize: 32, fill: "white" };
-  message = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Text"]("Hello Pixi!", opt);
-  message.anchor.x = 0.5;
-  message.position.set(renderer.view.width / 2, 30);
-  message.visible = false;
-  stage.addChild(message);
-}
-
-function setupAlien(i, isInitialSetup) {
-  //let alien = new PIXI.Sprite(loadTeaxture[IMAGES.ALIEN]);
-  let alien = new __WEBPACK_IMPORTED_MODULE_4__Alien_js__["a" /* default */](i, isInitialSetup, renderer);
-  stage.addChild(alien);
-  aliens.push(alien);
-  return alien;
-}
-
-function setupAliens() {
-  for (let i = 0; i < numberOfAliens; i++) {
-    setupAlien(i, true);
-  }
-}
-
-function setupPlayer() {
-  player = new __WEBPACK_IMPORTED_MODULE_3__Player_js__["a" /* default */]();
-  stage.addChild(player);
-}
-
-let loopNumber = 0;
 function gameLoop() {
   //Loop this function at 60 frames per second
   requestAnimationFrame(gameLoop);
@@ -20375,163 +20333,45 @@ function gameLoop() {
 }
 
 function play() {
-  player.x += player.vx;
-  player.y += player.vy;
+  player.rotate();
+  player.move();
+
   for (let alien of aliens) {
     if (bump.hit(player, alien)) {
       message.text = "Game over";
       message.visible = true;
+      state = stop;
       return;
     }
     message.visible = false;
     for (let bullet of bullets) {
       if (bump.hit(bullet, alien)) {
-        aliens.splice(aliens.indexOf(alien), 1);
-        stage.removeChild(alien);
+        alien.destroy();
+        bullet.destroy();
+      }
+      else {
+        bullet.move();
       }
     }
-    alien.x -= alien.vx;;
+    alien.move();
   }
 
   if (loopNumber === 100) {
-    setupAlien(++numberOfAliens, false);
+    new __WEBPACK_IMPORTED_MODULE_3__Alien_js__["a" /* default */](renderer, stage, aliens);
     loopNumber = 0;
   }
   loopNumber++;
 }
 
-function shoot(bullet, rotation, startPosition){
-  bullet.position.x = startPosition.x;
-  bullet.position.y = startPosition.y;
-  bullet.rotation = rotation;
-  stage.addChild(bullet);
-  bullets.push(bullet);
-}
+function stop() {}
 
-function rotateToPoint(mx, my, px, py){
-  let dist_Y = my - py;
-  let dist_X = mx - px;
-  let angle = Math.atan2(dist_Y,dist_X) + Math.PI;
-  //var degrees = angle * 180/ Math.PI;
-  return angle;
-}
-
-function animate() {
-  requestAnimationFrame(animate);
-
-  player.rotation = rotateToPoint(
-    renderer.plugins.interaction.mouse.global.x,
-    renderer.plugins.interaction.mouse.global.y,
-    player.position.x,
-    player.position.y);
-
-  for (let b = bullets.length - 1; b >= 0; b--) {
-    bullets[b].position.x += Math.cos(bullets[b].rotation) * __WEBPACK_IMPORTED_MODULE_5__Bullet_js__["a" /* default */].speed;
-    bullets[b].position.y += Math.sin(bullets[b].rotation) * __WEBPACK_IMPORTED_MODULE_5__Bullet_js__["a" /* default */].speed;
-  }
-  // render the container
-  renderer.render(stage);
-}
-
-function keyboard(keyCode) {
-  let key = {};
-  key.code = keyCode;
-  key.isDown = false;
-  key.isUp = true;
-  key.press = undefined;
-  key.release = undefined;
-  //The `downHandler`
-  key.downHandler = function(event) {
-    if (event.keyCode === key.code) {
-      if (key.isUp && key.press) key.press();
-      key.isDown = true;
-      key.isUp = false;
-    }
-    event.preventDefault();
-  };
-
-  //The `upHandler`
-  key.upHandler = function(event) {
-    if (event.keyCode === key.code) {
-      if (key.isDown && key.release) key.release();
-      key.isDown = false;
-      key.isUp = true;
-    }
-    event.preventDefault();
-  };
-
-  //Attach event listeners
-  window.addEventListener(
-    "keydown", key.downHandler.bind(key), false
-  );
-  window.addEventListener(
-    "keyup", key.upHandler.bind(key), false
-  );
-  return key;
-}
-
-function keyHandler(player) {
-  let left = keyboard(65),
-    up = keyboard(87),
-    right = keyboard(68),
-    down = keyboard(83);
-
-  left.press = function() {
-    player.vx = - __WEBPACK_IMPORTED_MODULE_3__Player_js__["a" /* default */].speed;
-    player.vy = 0;
-  };
-  left.release = function() {
-    if (!right.isDown && player.vy === 0) {
-      player.vx = 0;
-    }
-  };
-
-  up.press = function() {
-    player.vy = - __WEBPACK_IMPORTED_MODULE_3__Player_js__["a" /* default */].speed;
-    player.vx = 0;
-  };
-  up.release = function() {
-    if (!down.isDown && player.vx === 0) {
-      player.vy = 0;
-    }
-  };
-
-  right.press = function() {
-    player.vx = __WEBPACK_IMPORTED_MODULE_3__Player_js__["a" /* default */].speed;
-    player.vy = 0;
-  };
-  right.release = function() {
-    if (!left.isDown && player.vy === 0) {
-      player.vx = 0;
-    }
-  };
-
-  down.press = function() {
-    player.vy = __WEBPACK_IMPORTED_MODULE_3__Player_js__["a" /* default */].speed;
-    player.vx = 0;
-  };
-  down.release = function() {
-    if (!up.isDown && player.vx === 0) {
-      player.vy = 0;
-    }
-  };
-}
-
-function mouseHandler(player) {
-  stage.interactive = true;
-  stage.on("mousedown", function(e) {
-    const cannonLength = player.width / 2;
-    let startPosition = {
-      x: player.position.x - Math.cos(player.rotation) * cannonLength,
-      y: player.position.y - Math.sin(player.rotation) * cannonLength
-    };
-    shoot(new __WEBPACK_IMPORTED_MODULE_5__Bullet_js__["a" /* default */](), player.rotation + Math.PI, startPosition);
-  });
-}
-
-function inputHandler(player) {
-  keyHandler(player);
-  mouseHandler(player);
+function setupMessage() {
+  let opt = { fontFamily: "Arial", fontSize: 32, fill: "white" };
+  message = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Text"]("Hello Pixi!", opt);
+  message.anchor.x = 0.5;
+  message.position.set(renderer.view.width / 2, 30);
+  message.visible = false;
+  stage.addChild(message);
 }
 
 /***/ }),
@@ -20760,7 +20600,7 @@ if (!global.cancelAnimationFrame) {
     };
 }
 //# sourceMappingURL=requestAnimationFrame.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
 
 /***/ }),
 /* 94 */
@@ -20794,7 +20634,7 @@ if (!Math.sign) {
 
 exports.__esModule = true;
 
-var _Rectangle = __webpack_require__(25);
+var _Rectangle = __webpack_require__(24);
 
 var _Rectangle2 = _interopRequireDefault(_Rectangle);
 
@@ -20913,7 +20753,7 @@ exports.default = Circle;
 
 exports.__esModule = true;
 
-var _Rectangle = __webpack_require__(25);
+var _Rectangle = __webpack_require__(24);
 
 var _Rectangle2 = _interopRequireDefault(_Rectangle);
 
@@ -21040,7 +20880,7 @@ exports.default = Ellipse;
 
 exports.__esModule = true;
 
-var _Point = __webpack_require__(23);
+var _Point = __webpack_require__(22);
 
 var _Point2 = _interopRequireDefault(_Point);
 
@@ -22070,7 +21910,7 @@ module.exports = {
     generateUniformAccessObject: __webpack_require__(49),
     setPrecision: __webpack_require__(48),
     mapSize: __webpack_require__(45),
-    mapType: __webpack_require__(26)
+    mapType: __webpack_require__(25)
 };
 
 /***/ }),
@@ -22083,7 +21923,7 @@ module.exports = {
 exports.__esModule = true;
 exports.default = maxRecommendedTextures;
 
-var _ismobilejs = __webpack_require__(28);
+var _ismobilejs = __webpack_require__(27);
 
 var _ismobilejs2 = _interopRequireDefault(_ismobilejs);
 
@@ -22938,7 +22778,7 @@ function determineCrossOrigin(url) {
 
 }(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(113)(module), __webpack_require__(22)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(113)(module), __webpack_require__(21)))
 
 /***/ }),
 /* 113 */
@@ -23859,7 +23699,7 @@ var _const = __webpack_require__(1);
 
 var _math = __webpack_require__(4);
 
-var _CanvasTinter = __webpack_require__(34);
+var _CanvasTinter = __webpack_require__(33);
 
 var _CanvasTinter2 = _interopRequireDefault(_CanvasTinter);
 
@@ -24267,7 +24107,7 @@ var _WebGLRenderer = __webpack_require__(18);
 
 var _WebGLRenderer2 = _interopRequireDefault(_WebGLRenderer);
 
-var _createIndicesForQuads = __webpack_require__(35);
+var _createIndicesForQuads = __webpack_require__(34);
 
 var _createIndicesForQuads2 = _interopRequireDefault(_createIndicesForQuads);
 
@@ -24293,7 +24133,7 @@ var _pixiGlCore = __webpack_require__(5);
 
 var _pixiGlCore2 = _interopRequireDefault(_pixiGlCore);
 
-var _bitTwiddle = __webpack_require__(31);
+var _bitTwiddle = __webpack_require__(30);
 
 var _bitTwiddle2 = _interopRequireDefault(_bitTwiddle);
 
@@ -25441,7 +25281,7 @@ var _filterTransforms = __webpack_require__(129);
 
 var filterTransforms = _interopRequireWildcard(_filterTransforms);
 
-var _bitTwiddle = __webpack_require__(31);
+var _bitTwiddle = __webpack_require__(30);
 
 var _bitTwiddle2 = _interopRequireDefault(_bitTwiddle);
 
@@ -27072,7 +26912,7 @@ exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Sprite2 = __webpack_require__(30);
+var _Sprite2 = __webpack_require__(29);
 
 var _Sprite3 = _interopRequireDefault(_Sprite2);
 
@@ -27815,7 +27655,7 @@ var _Container2 = __webpack_require__(10);
 
 var _Container3 = _interopRequireDefault(_Container2);
 
-var _RenderTexture = __webpack_require__(33);
+var _RenderTexture = __webpack_require__(32);
 
 var _RenderTexture2 = _interopRequireDefault(_RenderTexture);
 
@@ -27827,7 +27667,7 @@ var _GraphicsData = __webpack_require__(65);
 
 var _GraphicsData2 = _interopRequireDefault(_GraphicsData);
 
-var _Sprite = __webpack_require__(30);
+var _Sprite = __webpack_require__(29);
 
 var _Sprite2 = _interopRequireDefault(_Sprite);
 
@@ -27837,7 +27677,7 @@ var _utils = __webpack_require__(2);
 
 var _const = __webpack_require__(1);
 
-var _Bounds = __webpack_require__(27);
+var _Bounds = __webpack_require__(26);
 
 var _Bounds2 = _interopRequireDefault(_Bounds);
 
@@ -31617,7 +31457,7 @@ var _core = __webpack_require__(0);
 
 var core = _interopRequireWildcard(_core);
 
-var _ismobilejs = __webpack_require__(28);
+var _ismobilejs = __webpack_require__(27);
 
 var _ismobilejs2 = _interopRequireDefault(_ismobilejs);
 
@@ -32974,11 +32814,11 @@ var _core = __webpack_require__(0);
 
 var core = _interopRequireWildcard(_core);
 
-var _CanvasTinter = __webpack_require__(34);
+var _CanvasTinter = __webpack_require__(33);
 
 var _CanvasTinter2 = _interopRequireDefault(_CanvasTinter);
 
-var _TextureTransform = __webpack_require__(36);
+var _TextureTransform = __webpack_require__(35);
 
 var _TextureTransform2 = _interopRequireDefault(_TextureTransform);
 
@@ -37790,7 +37630,7 @@ var _async = __webpack_require__(83);
 
 var async = _interopRequireWildcard(_async);
 
-var _Resource = __webpack_require__(37);
+var _Resource = __webpack_require__(36);
 
 var _Resource2 = _interopRequireDefault(_Resource);
 
@@ -38579,7 +38419,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 exports.blobMiddlewareFactory = blobMiddlewareFactory;
 
-var _Resource = __webpack_require__(37);
+var _Resource = __webpack_require__(36);
 
 var _Resource2 = _interopRequireDefault(_Resource);
 
@@ -40717,7 +40557,7 @@ var _pixiGlCore = __webpack_require__(5);
 
 var _pixiGlCore2 = _interopRequireDefault(_pixiGlCore);
 
-var _createIndicesForQuads = __webpack_require__(35);
+var _createIndicesForQuads = __webpack_require__(34);
 
 var _createIndicesForQuads2 = _interopRequireDefault(_createIndicesForQuads);
 
@@ -40976,7 +40816,7 @@ Object.defineProperty(exports, 'canvas', {
   }
 });
 
-var _BasePrepare = __webpack_require__(38);
+var _BasePrepare = __webpack_require__(37);
 
 Object.defineProperty(exports, 'BasePrepare', {
   enumerable: true,
@@ -41019,7 +40859,7 @@ var _core = __webpack_require__(0);
 
 var core = _interopRequireWildcard(_core);
 
-var _BasePrepare2 = __webpack_require__(38);
+var _BasePrepare2 = __webpack_require__(37);
 
 var _BasePrepare3 = _interopRequireDefault(_BasePrepare2);
 
@@ -41146,7 +40986,7 @@ var _core = __webpack_require__(0);
 
 var core = _interopRequireWildcard(_core);
 
-var _BasePrepare2 = __webpack_require__(38);
+var _BasePrepare2 = __webpack_require__(37);
 
 var _BasePrepare3 = _interopRequireDefault(_BasePrepare2);
 
@@ -41687,14 +41527,18 @@ return D&&e instanceof Array||E&&d instanceof Array?m():(C=l(d,e),C&&k&&k(C)),C}
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pixi_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__constants_js__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__constants_js__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Bullet_js__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__KeyHandler__ = __webpack_require__(195);
 
 
 
-const speed = 2.5;
+
+
+const SPEED = 2.5;
 
 class Player extends __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"] {
-  constructor() {
+  constructor(renderer, stage, bullets) {
     super(__WEBPACK_IMPORTED_MODULE_0_pixi_js__["Texture"].fromImage(__WEBPACK_IMPORTED_MODULE_1__constants_js__["a" /* default */].TANK));
     this.width = 80;
     this.height = 50;
@@ -41707,10 +41551,70 @@ class Player extends __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"] {
     this.y = 500 / 2;
     this.vx = 0;
     this.vy = 0;
+
+    this.bullets = bullets;
+
+    this.renderer = renderer;
+    this.stage = stage;
+    stage.addChild(this);
+
+    this.setInputHandlers();
   }
 
-  static get speed() {
-    return speed;
+  rotate() {
+    this.rotation = this.rotateToPoint(
+      this.renderer.plugins.interaction.mouse.global.x,
+      this.renderer.plugins.interaction.mouse.global.y,
+      this.position.x,
+      this.position.y);
+  }
+
+  rotateToPoint(mx, my, px, py){
+    let dist_Y = my - py;
+    let dist_X = mx - px;
+    let angle = Math.atan2(dist_Y,dist_X) + Math.PI;
+    return angle;
+  }
+
+  shoot() {
+    const cannonLength = this.width / 2;
+    let startPosition = {
+      x: this.position.x - Math.cos(this.rotation) * cannonLength,
+      y: this.position.y - Math.sin(this.rotation) * cannonLength,
+      rotation: this.rotation + Math.PI
+    };
+    new __WEBPACK_IMPORTED_MODULE_2__Bullet_js__["a" /* default */](startPosition, this.stage, this.bullets);
+  }
+
+  setInputHandlers() {
+    new __WEBPACK_IMPORTED_MODULE_3__KeyHandler__["a" /* default */](this);
+    this.stage.interactive = true;
+    this.stage.on("mousedown", () => { this.shoot() });
+  }
+
+  move() {
+    this.x += this.vx;
+    this.y += this.vy;
+  }
+
+  setXDirection(direction) {
+    if (direction !== 0) {
+      this.vx = direction * SPEED;
+      this.vy = 0;
+    }
+    else {
+      this.vx = 0;
+    }
+  }
+
+  setYDirection(direction) {
+    if (direction !== 0) {
+      this.vy = direction * SPEED;
+      this.vx = 0;
+    }
+    else {
+      this.vy = 0;
+    }
   }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Player;
@@ -41723,52 +41627,35 @@ class Player extends __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"] {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pixi_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__constants_js__ = __webpack_require__(21);
-
-
-
-const spacing = 100;
-const xOffset = 150;
-
-class Alien extends __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"] {
-
-  constructor(number, isInitialSetup, renderer) {
-    super(__WEBPACK_IMPORTED_MODULE_0_pixi_js__["Texture"].fromImage(__WEBPACK_IMPORTED_MODULE_1__constants_js__["a" /* default */].ALIEN));
-
-    this.circular = true;
-    this.anchor.x = 0.5;
-    this.anchor.y = 0.5;
-    this.scale.x = -1; //Flip x
-    this.x = isInitialSetup ? spacing * number + xOffset : renderer.view.width;
-    this.vx = 2;
-    this.y = this.randomInt(0, renderer.view.height - this.height);
-  }
-
-  randomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = Alien;
-
-
-/***/ }),
-/* 195 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pixi_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__constants_js__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__constants_js__ = __webpack_require__(38);
 
 
 
 const speed = 5;
 
 class Bullet extends __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"] {
-  constructor() {
+  constructor({x, y, rotation}, stage, bullets) {
     super(__WEBPACK_IMPORTED_MODULE_0_pixi_js__["Texture"].fromImage(__WEBPACK_IMPORTED_MODULE_1__constants_js__["a" /* default */].BULLET));
     this.anchor.x = 0.5;
     this.anchor.y = 0.5;
+    this.position.x = x;
+    this.position.y = y;
+    this.rotation = rotation;
+
+    this.stage = stage;
+    this.bullets = bullets;
+    stage.addChild(this);
+    bullets.push(this);
+  }
+
+  move() {
+    this.position.x += Math.cos(this.rotation) * Bullet.speed;
+    this.position.y += Math.sin(this.rotation) * Bullet.speed;
+  }
+
+  destroy() {
+    this.bullets.splice(this.bullets.indexOf(this), 1);
+    this.stage.removeChild(this);
   }
 
   static get speed() {
@@ -41776,6 +41663,147 @@ class Bullet extends __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"] {
   }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Bullet;
+
+
+/***/ }),
+/* 195 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const RIGHT = 1;
+const LEFT = -1;
+const UP = -1;
+const DOWN = 1;
+const STOP = 0;
+
+class KeyHandler {
+  constructor(player) {
+    let left = this.keyboard(65),
+      up = this.keyboard(87),
+      right = this.keyboard(68),
+      down = this.keyboard(83);
+
+    left.press = function() {
+      player.setXDirection(LEFT);
+    };
+    left.release = function() {
+      if (!right.isDown && player.vy === 0) {
+        player.setXDirection(STOP);
+      }
+    };
+
+    up.press = function() {
+      player.setYDirection(UP);
+    };
+    up.release = function() {
+      if (!down.isDown && player.vx === 0) {
+        player.setYDirection(STOP);
+      }
+    };
+
+    right.press = function() {
+      player.setXDirection(RIGHT);
+    };
+    right.release = function() {
+      if (!left.isDown && player.vy === 0) {
+        player.setXDirection(STOP);
+      }
+    };
+
+    down.press = function() {
+      player.setYDirection(DOWN);
+    };
+    down.release = function() {
+      if (!up.isDown && player.vx === 0) {
+        player.setYDirection(STOP);
+      }
+    };
+  }
+
+  keyboard(keyCode) {
+    let key = {};
+    key.code = keyCode;
+    key.isDown = false;
+    key.isUp = true;
+    key.press = undefined;
+    key.release = undefined;
+    //The `downHandler`
+    key.downHandler = function(event) {
+      if (event.keyCode === key.code) {
+        if (key.isUp && key.press) key.press();
+        key.isDown = true;
+        key.isUp = false;
+      }
+      event.preventDefault();
+    };
+
+    //The `upHandler`
+    key.upHandler = function(event) {
+      if (event.keyCode === key.code) {
+        if (key.isDown && key.release) key.release();
+        key.isDown = false;
+        key.isUp = true;
+      }
+      event.preventDefault();
+    };
+
+    //Attach event listeners
+    window.addEventListener(
+      "keydown", key.downHandler.bind(key), false
+    );
+    window.addEventListener(
+      "keyup", key.upHandler.bind(key), false
+    );
+    return key;
+  }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = KeyHandler;
+
+
+/***/ }),
+/* 196 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pixi_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__constants_js__ = __webpack_require__(38);
+
+
+
+class Alien extends __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"] {
+
+  constructor(renderer, stage, aliens) {
+    super(__WEBPACK_IMPORTED_MODULE_0_pixi_js__["Texture"].fromImage(__WEBPACK_IMPORTED_MODULE_1__constants_js__["a" /* default */].ALIEN));
+
+    this.circular = true;
+    this.anchor.x = 0.5;
+    this.anchor.y = 0.5;
+    this.scale.x = -1; //Flip x
+    this.x = renderer.view.width;
+    this.vx = 2;
+    this.y = this.randomInt(0, renderer.view.height - this.height);
+
+    this.stage = stage;
+    this.aliens = aliens;
+    stage.addChild(this);
+    aliens.push(this);
+  }
+
+  move() {
+    this.x -= this.vx;
+  }
+
+  destroy() {
+    this.aliens.splice(this.aliens.indexOf(this), 1);
+    this.stage.removeChild(this);
+  }
+
+  randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Alien;
 
 
 /***/ })

@@ -5,9 +5,4 @@ const IMAGES = {
   TILESET: '../images/tileset.json'
 };
 
-/*const playerSpeed = 2.5,
-  bulletSpeed = 5,
-  spacing = 100,
-  xOffset = 150;*/
-
 export default IMAGES;
