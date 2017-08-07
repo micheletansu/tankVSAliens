@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
 import IMAGES from './constants.js';
 import Bullet from './Bullet.js';
-import KeyHandler from "./KeyHandler";
+import playerKeys from "./playerKeys";
 
 const SPEED = 2.5;
 
@@ -29,14 +29,6 @@ export default class Player extends PIXI.Sprite {
     this.setInputHandlers();
   }
 
-  rotate() {
-    this.rotation = this.rotateToPoint(
-      this.renderer.plugins.interaction.mouse.global.x,
-      this.renderer.plugins.interaction.mouse.global.y,
-      this.position.x,
-      this.position.y);
-  }
-
   rotateToPoint(mx, my, px, py){
     let dist_Y = my - py;
     let dist_X = mx - px;
@@ -55,12 +47,17 @@ export default class Player extends PIXI.Sprite {
   }
 
   setInputHandlers() {
-    new KeyHandler(this);
+    playerKeys(this);
     this.stage.interactive = true;
     this.stage.on("mousedown", () => { this.shoot() });
   }
 
   move() {
+    this.rotation = this.rotateToPoint(
+      this.renderer.plugins.interaction.mouse.global.x,
+      this.renderer.plugins.interaction.mouse.global.y,
+      this.position.x,
+      this.position.y);
     this.x += this.vx;
     this.y += this.vy;
   }

@@ -11601,11 +11601,6 @@ const IMAGES = {
   TILESET: '../images/tileset.json'
 };
 
-/*const playerSpeed = 2.5,
-  bulletSpeed = 5,
-  spacing = 100,
-  xOffset = 150;*/
-
 /* harmony default export */ __webpack_exports__["a"] = (IMAGES);
 
 /***/ }),
@@ -20296,7 +20291,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_bump_js__ = __webpack_require__(192);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_bump_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_bump_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Player_js__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Alien_js__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Alien_js__ = __webpack_require__(197);
 
 
 
@@ -20328,12 +20323,11 @@ function setup() {
 function gameLoop() {
   //Loop this function at 60 frames per second
   requestAnimationFrame(gameLoop);
-  play();
+  state();
   renderer.render(stage);
 }
 
 function play() {
-  player.rotate();
   player.move();
 
   for (let alien of aliens) {
@@ -41529,7 +41523,7 @@ return D&&e instanceof Array||E&&d instanceof Array?m():(C=l(d,e),C&&k&&k(C)),C}
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pixi_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__constants_js__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Bullet_js__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__KeyHandler__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__playerKeys__ = __webpack_require__(195);
 
 
 
@@ -41561,14 +41555,6 @@ class Player extends __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"] {
     this.setInputHandlers();
   }
 
-  rotate() {
-    this.rotation = this.rotateToPoint(
-      this.renderer.plugins.interaction.mouse.global.x,
-      this.renderer.plugins.interaction.mouse.global.y,
-      this.position.x,
-      this.position.y);
-  }
-
   rotateToPoint(mx, my, px, py){
     let dist_Y = my - py;
     let dist_X = mx - px;
@@ -41587,12 +41573,17 @@ class Player extends __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"] {
   }
 
   setInputHandlers() {
-    new __WEBPACK_IMPORTED_MODULE_3__KeyHandler__["a" /* default */](this);
+    Object(__WEBPACK_IMPORTED_MODULE_3__playerKeys__["a" /* default */])(this);
     this.stage.interactive = true;
     this.stage.on("mousedown", () => { this.shoot() });
   }
 
   move() {
+    this.rotation = this.rotateToPoint(
+      this.renderer.plugins.interaction.mouse.global.x,
+      this.renderer.plugins.interaction.mouse.global.y,
+      this.position.x,
+      this.position.y);
     this.x += this.vx;
     this.y += this.vy;
   }
@@ -41670,98 +41661,106 @@ class Bullet extends __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"] {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = playerKeys;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__keyboard_js__ = __webpack_require__(196);
+
 const RIGHT = 1;
 const LEFT = -1;
 const UP = -1;
 const DOWN = 1;
 const STOP = 0;
+const A = 65;
+const W = 87;
+const D = 68;
+const S = 83;
 
-class KeyHandler {
-  constructor(player) {
-    let left = this.keyboard(65),
-      up = this.keyboard(87),
-      right = this.keyboard(68),
-      down = this.keyboard(83);
+function playerKeys(player) {
+  let left = Object(__WEBPACK_IMPORTED_MODULE_0__keyboard_js__["a" /* default */])(A),
+    up = Object(__WEBPACK_IMPORTED_MODULE_0__keyboard_js__["a" /* default */])(W),
+    right = Object(__WEBPACK_IMPORTED_MODULE_0__keyboard_js__["a" /* default */])(D),
+    down = Object(__WEBPACK_IMPORTED_MODULE_0__keyboard_js__["a" /* default */])(S);
 
-    left.press = function() {
-      player.setXDirection(LEFT);
-    };
-    left.release = function() {
-      if (!right.isDown && player.vy === 0) {
-        player.setXDirection(STOP);
-      }
-    };
+  left.press = function() {
+    player.setXDirection(LEFT);
+  };
+  left.release = function() {
+    if (!right.isDown && player.vy === 0) {
+      player.setXDirection(STOP);
+    }
+  };
 
-    up.press = function() {
-      player.setYDirection(UP);
-    };
-    up.release = function() {
-      if (!down.isDown && player.vx === 0) {
-        player.setYDirection(STOP);
-      }
-    };
+  up.press = function() {
+    player.setYDirection(UP);
+  };
+  up.release = function() {
+    if (!down.isDown && player.vx === 0) {
+      player.setYDirection(STOP);
+    }
+  };
 
-    right.press = function() {
-      player.setXDirection(RIGHT);
-    };
-    right.release = function() {
-      if (!left.isDown && player.vy === 0) {
-        player.setXDirection(STOP);
-      }
-    };
+  right.press = function() {
+    player.setXDirection(RIGHT);
+  };
+  right.release = function() {
+    if (!left.isDown && player.vy === 0) {
+      player.setXDirection(STOP);
+    }
+  };
 
-    down.press = function() {
-      player.setYDirection(DOWN);
-    };
-    down.release = function() {
-      if (!up.isDown && player.vx === 0) {
-        player.setYDirection(STOP);
-      }
-    };
-  }
-
-  keyboard(keyCode) {
-    let key = {};
-    key.code = keyCode;
-    key.isDown = false;
-    key.isUp = true;
-    key.press = undefined;
-    key.release = undefined;
-    //The `downHandler`
-    key.downHandler = function(event) {
-      if (event.keyCode === key.code) {
-        if (key.isUp && key.press) key.press();
-        key.isDown = true;
-        key.isUp = false;
-      }
-      event.preventDefault();
-    };
-
-    //The `upHandler`
-    key.upHandler = function(event) {
-      if (event.keyCode === key.code) {
-        if (key.isDown && key.release) key.release();
-        key.isDown = false;
-        key.isUp = true;
-      }
-      event.preventDefault();
-    };
-
-    //Attach event listeners
-    window.addEventListener(
-      "keydown", key.downHandler.bind(key), false
-    );
-    window.addEventListener(
-      "keyup", key.upHandler.bind(key), false
-    );
-    return key;
-  }
+  down.press = function() {
+    player.setYDirection(DOWN);
+  };
+  down.release = function() {
+    if (!up.isDown && player.vx === 0) {
+      player.setYDirection(STOP);
+    }
+  };
 }
-/* harmony export (immutable) */ __webpack_exports__["a"] = KeyHandler;
-
 
 /***/ }),
 /* 196 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = (function(keyCode) {
+  let key = {};
+  key.code = keyCode;
+  key.isDown = false;
+  key.isUp = true;
+  key.press = undefined;
+  key.release = undefined;
+  //The `downHandler`
+  key.downHandler = function(event) {
+    if (event.keyCode === key.code) {
+      if (key.isUp && key.press) key.press();
+      key.isDown = true;
+      key.isUp = false;
+    }
+    event.preventDefault();
+  };
+
+  //The `upHandler`
+  key.upHandler = function(event) {
+    if (event.keyCode === key.code) {
+      if (key.isDown && key.release) key.release();
+      key.isDown = false;
+      key.isUp = true;
+    }
+    event.preventDefault();
+  };
+
+  //Attach event listeners
+  window.addEventListener(
+    "keydown", key.downHandler.bind(key), false
+  );
+  window.addEventListener(
+    "keyup", key.upHandler.bind(key), false
+  );
+  return key;
+});
+
+/***/ }),
+/* 197 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

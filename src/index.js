@@ -29,12 +29,11 @@ function setup() {
 function gameLoop() {
   //Loop this function at 60 frames per second
   requestAnimationFrame(gameLoop);
-  play();
+  state();
   renderer.render(stage);
 }
 
 function play() {
-  player.rotate();
   player.move();
 
   for (let alien of aliens) {
