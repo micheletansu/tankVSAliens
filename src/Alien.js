@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import IMAGES from './constants.js';
+import { IMAGES } from './constants.js';
 
 export default class Alien extends PIXI.Sprite {
 

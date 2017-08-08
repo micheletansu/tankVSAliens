@@ -3,6 +3,7 @@ import Bump from 'bump.js';
 
 import Player from './Player.js';
 import Alien from './Alien.js';
+import controller from './controller.js';
 
 const bump = new Bump(PIXI);
 
@@ -11,9 +12,6 @@ renderer.backgroundColor = 0x897A20;
 document.body.appendChild(renderer.view);
 
 let stage = new PIXI.Container();
-stage.height = renderer.view.height;
-stage.width = renderer.view.width;
-
 let player, aliens = [], bullets = [];
 let message, state, loopNumber = 0;
 
@@ -21,6 +19,7 @@ setup();
 
 function setup() {
   setupMessage();
+  controller(togglePause);
   player = new Player(renderer, stage, bullets);
   state = play;
   gameLoop();
@@ -40,7 +39,7 @@ function play() {
     if (bump.hit(player, alien)) {
       message.text = "Game over";
       message.visible = true;
-      state = stop;
+      state = pause;
       return;
     }
     for (let bullet of bullets) {
@@ -64,7 +63,11 @@ function play() {
   loopNumber++;
 }
 
-function stop() {}
+function pause() {}
+
+function togglePause() {
+  state = state === play ? pause : play;
+}
 
 function setupMessage() {
   let opt = { fontFamily: "Arial", fontSize: 32, fill: "white" };

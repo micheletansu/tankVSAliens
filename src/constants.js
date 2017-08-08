@@ -5,4 +5,12 @@ const IMAGES = {
   TILESET: '../images/tileset.json'
 };
 
-export default IMAGES;
+const KEY = {
+  A: 65,
+  W: 87,
+  D: 68,
+  S: 83,
+  SPACE: 32
+};
+
+export { IMAGES, KEY };

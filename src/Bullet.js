@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import IMAGES from './constants.js';
+import { IMAGES } from './constants.js';
 
 const speed = 5;
 

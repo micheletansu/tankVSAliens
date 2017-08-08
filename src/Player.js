@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
-import IMAGES from './constants.js';
+import { IMAGES } from './constants.js';
 import Bullet from './Bullet.js';
-import playerKeys from "./playerKeys";
+import playerController from "./playerController";
 
 const SPEED = 2.5;
 
@@ -46,7 +46,7 @@ export default class Player extends PIXI.Sprite {
   }
 
   setInputHandlers() {
-    playerKeys(this);
+    playerController(this);
     this.stage.interactive = true;
     this.stage.on("mousedown", () => { this.shoot() });
   }
