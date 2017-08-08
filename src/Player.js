@@ -16,7 +16,7 @@ export default class Player extends PIXI.Sprite {
     this.anchor.y = 0.5;
 
     this.x = 100;
-    this.y = 500 / 2;
+    this.y = renderer.view.height / 2;
     this.vx = 0;
     this.vy = 0;
 
@@ -37,13 +37,12 @@ export default class Player extends PIXI.Sprite {
   }
 
   shoot() {
-    const cannonLength = this.width / 2;
     let startPosition = {
-      x: this.position.x - Math.cos(this.rotation) * cannonLength,
-      y: this.position.y - Math.sin(this.rotation) * cannonLength,
+      x: this.position.x - Math.cos(this.rotation) * this.halfWidth,
+      y: this.position.y - Math.sin(this.rotation) * this.halfWidth,
       rotation: this.rotation + Math.PI
     };
-    new Bullet(startPosition, this.stage, this.bullets);
+    new Bullet(startPosition, this.stage, this.renderer, this.bullets);
   }
 
   setInputHandlers() {

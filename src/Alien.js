@@ -14,6 +14,7 @@ export default class Alien extends PIXI.Sprite {
     this.vx = 2;
     this.y = this.randomInt(0, renderer.view.height - this.height);
 
+    this.renderer = renderer;
     this.stage = stage;
     this.aliens = aliens;
     stage.addChild(this);
@@ -22,10 +23,19 @@ export default class Alien extends PIXI.Sprite {
 
   move() {
     this.x -= this.vx;
+    this.checkout();
+  }
+
+  checkout() {
+    if (this.position.x < 0 || this.position.x > this.renderer.view.width
+      || this.position.y < 0 || this.position.y > this.renderer.view.height) {
+      this.destroy();
+    }
   }
 
   destroy() {
     this.aliens.splice(this.aliens.indexOf(this), 1);
+    this.visible = false;
     this.stage.removeChild(this);
   }
 

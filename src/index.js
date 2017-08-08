@@ -43,7 +43,6 @@ function play() {
       state = stop;
       return;
     }
-    message.visible = false;
     for (let bullet of bullets) {
       if (bump.hit(bullet, alien)) {
         alien.destroy();
@@ -53,7 +52,9 @@ function play() {
         bullet.move();
       }
     }
-    alien.move();
+    if (alien.visible) {
+        alien.move();
+    }
   }
 
   if (loopNumber === 100) {
