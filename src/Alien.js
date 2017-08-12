@@ -9,7 +9,8 @@ export default class Alien extends PIXI.Sprite {
     this.circular = true;
     this.anchor.x = 0.5;
     this.anchor.y = 0.5;
-    this.scale.x = -1; //Flip x
+    this.scale.x = -0.7; //Flip x
+    this.scale.y = 0.7;
     this.x = renderer.view.width;
     this.vx = 2;
     this.y = this.randomInt(0, renderer.view.height - this.height);

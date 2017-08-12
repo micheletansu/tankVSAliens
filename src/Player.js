@@ -8,8 +8,8 @@ const SPEED = 2.5;
 export default class Player extends PIXI.Sprite {
   constructor(renderer, stage, bullets) {
     super(PIXI.Texture.fromImage(IMAGES.TANK));
-    this.width = 80;
-    this.height = 50;
+    this.scale.x = 0.3;
+    this.scale.y = 0.3;
 
     this.circular = true;
     this.anchor.x = 0.5;
