@@ -11,23 +11,30 @@ let renderer = PIXI.autoDetectRenderer(1000, 500);
 renderer.backgroundColor = 0x897A20;
 document.body.appendChild(renderer.view);
 
-let stage = new PIXI.Container();
-let player, aliens = [], bullets = [];
+let stage = new PIXI.Container(); //Main stage container
+
+let startPage = new PIXI.Container(); //Pause/Menu stage
+stage.addChild(startPage);
+
+let gameScene = new PIXI.Container(); //Game stage
+gameScene.visible = false;
+stage.addChild(gameScene);
+
+let player, aliens = [], bullets = []; //Entities
 let message, state, loopNumber = 0;
 
 setup();
 
 function setup() {
+  player = new Player(renderer, gameScene, bullets);
   setupMessage();
   controller(togglePause);
-  player = new Player(renderer, stage, bullets);
-  state = play;
+  state = start;
   gameLoop();
 }
 
 function gameLoop() {
-  //Loop this function at 60 frames per second
-  requestAnimationFrame(gameLoop);
+  requestAnimationFrame(gameLoop); //Loop this function at 60 frames per second
   state();
   renderer.render(stage);
 }
@@ -38,8 +45,7 @@ function play() {
   for (let alien of aliens) {
     if (bump.hit(player, alien)) {
       message.text = "Game over";
-      message.visible = true;
-      state = pause;
+      showPauseScene();
       return;
     }
     for (let bullet of bullets) {
@@ -57,23 +63,65 @@ function play() {
   }
 
   if (loopNumber === 100) {
-    new Alien(renderer, stage, aliens);
+    new Alien(renderer, gameScene, aliens);
     loopNumber = 0;
   }
   loopNumber++;
 }
 
 function pause() {}
+function start() {}
 
 function togglePause() {
-  state = state === play ? pause : play;
+  if (state === play) {
+    showPauseScene();
+  }
+  else if (state === pause || state === start) {
+    showGameScene();
+  }
+}
+
+function showGameScene() {
+  state = play;
+  gameScene.visible = true;
+  startPage.visible = false;
+}
+
+function showPauseScene() {
+  state = pause;
+  gameScene.visible = false;
+  startPage.visible = true;
 }
 
 function setupMessage() {
-  let opt = { fontFamily: "Arial", fontSize: 32, fill: "white" };
-  message = new PIXI.Text("Hello Pixi!", opt);
+  let stateFont = { fontFamily: "Arial", fontSize: 32, fill: "white" };
+  message = new PIXI.Text("Tank vs Aliens", stateFont);
   message.anchor.x = 0.5;
   message.position.set(renderer.view.width / 2, 30);
-  message.visible = false;
-  stage.addChild(message);
+  startPage.addChild(message);
+
+  let keysFont = { fontFamily: "Arial", fontSize: 28, fill: "white" };
+  let shootKeyInfo = new PIXI.Text("Left click: Shoot", keysFont);
+  shootKeyInfo.position.set(renderer.view.width / 4, 220);
+  startPage.addChild(shootKeyInfo);
+
+  let leftKeyInfo = new PIXI.Text("A: Left", keysFont);
+  leftKeyInfo.position.set(renderer.view.width / 4, 270);
+  startPage.addChild(leftKeyInfo);
+
+  let rightKeyInfo = new PIXI.Text("D: Right", keysFont);
+  rightKeyInfo.position.set(2 * renderer.view.width / 3, 270);
+  startPage.addChild(rightKeyInfo);
+
+  let upKeyInfo = new PIXI.Text("W: Up", keysFont);
+  upKeyInfo.position.set(renderer.view.width / 4, 320);
+  startPage.addChild(upKeyInfo);
+
+  let downKeyInfo = new PIXI.Text("S: Down", keysFont);
+  downKeyInfo.position.set(2 * renderer.view.width / 3, 320);
+  startPage.addChild(downKeyInfo);
+
+  let startInfo = new PIXI.Text("Play/Pause:  Space bar", keysFont);
+  startInfo.position.set(renderer.view.width / 4, 370);
+  startPage.addChild(startInfo);
 }
