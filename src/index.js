@@ -26,6 +26,7 @@ let message, state, loopNumber = 0;
 setup();
 
 function setup() {
+  gameScene.interactive = true;
   player = new Player(renderer, gameScene, bullets);
   setupMessage();
   controller(togglePause);
@@ -46,7 +47,7 @@ function play() {
     if (bump.hit(player, alien)) {
       message.text = "Game over";
       showPauseScene();
-      return;
+      restart();
     }
     for (let bullet of bullets) {
       if (bump.hit(bullet, alien)) {
@@ -78,6 +79,13 @@ function togglePause() {
   }
   else if (state === pause || state === start) {
     showGameScene();
+  }
+}
+
+function restart() {
+  player.restart();
+  for (let i=aliens.length; i--; i>=0) {
+    aliens[i].destroy();
   }
 }
 

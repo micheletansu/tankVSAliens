@@ -47,7 +47,6 @@ export default class Player extends PIXI.Sprite {
 
   setInputHandlers() {
     playerController(this);
-    this.stage.interactive = true;
     this.stage.on("mousedown", () => { this.shoot() });
   }
 
@@ -79,5 +78,10 @@ export default class Player extends PIXI.Sprite {
     else {
       this.vy = 0;
     }
+  }
+
+  restart() {
+    this.x = 100;
+    this.y = this.renderer.view.height / 2;
   }
 }
