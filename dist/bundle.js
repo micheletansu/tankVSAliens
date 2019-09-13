@@ -21290,10 +21290,10 @@ module.exports = g;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IMAGES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return KEY; });
 const IMAGES = {
-  TANK: '../images/tank.png',
-  ALIEN: '../images/alien.png',
-  BULLET: '../images/bullet.png',
-  TILESET: '../images/tileset.json'
+  TANK: 'images/tank.png',
+  ALIEN: 'images/alien.png',
+  BULLET: 'images/bullet.png',
+  TILESET: 'images/tileset.json'
 };
 
 const KEY = {
