@@ -4,7 +4,7 @@ import { IMAGES } from './constants.js';
 export default class Alien extends PIXI.Sprite {
 
   constructor(renderer, stage, aliens) {
-    super(PIXI.Texture.fromImage(IMAGES.ALIEN));
+    super(PIXI.Texture.from(IMAGES.ALIEN));
 
     this.circular = true;
     this.anchor.x = 0.5;

@@ -5,7 +5,7 @@ const speed = 5;
 
 export default class Bullet extends PIXI.Sprite {
   constructor({x, y, rotation}, stage, renderer, bullets) {
-    super(PIXI.Texture.fromImage(IMAGES.BULLET));
+    super(PIXI.Texture.from(IMAGES.BULLET));
     this.anchor.x = 0.5;
     this.anchor.y = 0.5;
     this.position.x = x;

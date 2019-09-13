@@ -1,3 +1,5 @@
+import * as PIXI from 'pixi.js';
+
 export default function setInfoMessages(startPage, message, renderer) {
   let stateFont = { fontFamily: "Arial", fontSize: 32, fill: "white" };
   message = new PIXI.Text("Tank vs Aliens", stateFont);
